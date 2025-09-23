@@ -1,0 +1,289 @@
+Perfecto 🚀, te voy a explicar **todo lo esencial y avanzado sobre directorios en Python** usando tanto el módulo **`os`** (más antiguo y todavía muy usado) como **`pathlib`** (más moderno y recomendado).
+
+---
+
+# 🔹 1. Módulo `os` (manejo clásico de directorios)
+
+El módulo **`os`** se ha usado históricamente para interactuar con el sistema operativo.
+
+### 📌 Operaciones básicas con directorios
+
+```python
+import os
+
+# Ver directorio actual
+print(os.getcwd())  
+
+# Cambiar directorio
+os.chdir("C:/Users")  
+
+# Listar archivos y carpetas de un directorio
+print(os.listdir("."))  
+
+# Crear carpeta
+os.mkdir("nueva_carpeta")
+
+# Crear árbol de carpetas (incluye subdirectorios)
+os.makedirs("padre/hijo/nieto")
+
+# Eliminar carpeta (solo si está vacía)
+os.rmdir("nueva_carpeta")
+
+# Eliminar árbol de carpetas
+os.removedirs("padre/hijo/nieto")
+```
+
+---
+
+### 📌 Comprobar existencia y tipo
+
+```python
+ruta = "C:/Users/ejemplo.txt"
+
+print(os.path.exists(ruta))     # True si existe
+print(os.path.isfile(ruta))     # True si es archivo
+print(os.path.isdir(ruta))      # True si es directorio
+```
+
+---
+
+### 📌 Trabajar con rutas (`os.path`)
+
+```python
+ruta = "C:/Users/ejemplo.txt"
+
+print(os.path.basename(ruta))  # "ejemplo.txt"
+print(os.path.dirname(ruta))   # "C:/Users"
+print(os.path.split(ruta))     # ('C:/Users', 'ejemplo.txt')
+print(os.path.splitext(ruta))  # ('C:/Users/ejemplo', '.txt')
+```
+
+---
+
+# 🔹 2. Módulo `pathlib` (manejo moderno de directorios)
+
+`pathlib` ofrece una API orientada a objetos, mucho más **limpia** que `os`.
+
+```python
+from pathlib import Path
+
+# Ruta actual
+ruta = Path.cwd()
+print(ruta)  
+
+# Cambiar directorio
+# (no cambia globalmente, solo representa la ruta)
+nueva_ruta = Path("C:/Users")
+print(nueva_ruta)
+
+# Listar archivos y carpetas
+for item in ruta.iterdir():
+    print(item)
+
+# Crear carpeta
+Path("nueva_carpeta").mkdir(exist_ok=True)
+
+# Crear árbol de carpetas
+Path("padre/hijo/nieto").mkdir(parents=True, exist_ok=True)
+
+# Eliminar carpeta
+Path("nueva_carpeta").rmdir()
+```
+
+---
+
+### 📌 Comprobar existencia y tipo
+
+```python
+ruta = Path("C:/Users/ejemplo.txt")
+
+print(ruta.exists())   # True si existe
+print(ruta.is_file())  # True si es archivo
+print(ruta.is_dir())   # True si es carpeta
+```
+
+---
+
+### 📌 Trabajar con rutas
+
+```python
+ruta = Path("C:/Users/ejemplo.txt")
+
+print(ruta.name)      # "ejemplo.txt"
+print(ruta.stem)      # "ejemplo"
+print(ruta.suffix)    # ".txt"
+print(ruta.parent)    # "C:/Users"
+
+# Unir rutas fácilmente
+nueva = ruta.parent / "nueva_carpeta" / "otro.txt"
+print(nueva)
+```
+
+---
+
+# 🔹 3. Diferencias importantes entre `os` y `pathlib`
+
+| Aspecto                | `os` / `os.path`     | `pathlib`                  |
+| ---------------------- | -------------------- | -------------------------- |
+| Estilo                 | Funciones            | Orientado a objetos        |
+| Legibilidad            | Menos clara          | Más clara y expresiva      |
+| Concatenación de rutas | `os.path.join(a, b)` | `Path(a) / b`              |
+| Compatibilidad vieja   | Muy usado aún        | Recomendado en Python 3.6+ |
+
+---
+
+# 🔹 4. Ejemplos prácticos
+
+### 📂 Listar solo archivos `.txt` en un directorio
+
+```python
+from pathlib import Path
+
+ruta = Path(".")
+for archivo in ruta.glob("*.txt"):
+    print(archivo)
+```
+
+### 📂 Recorrer un directorio y subdirectorios
+
+```python
+from pathlib import Path
+
+ruta = Path("C:/Users")
+
+for archivo in ruta.rglob("*.py"):  # busca todos los .py en subcarpetas
+    print(archivo)
+```
+
+### 📂 Mover, copiar y eliminar archivos
+
+`pathlib` no tiene copiar directamente, pero puedes usar `shutil`:
+
+```python
+import shutil
+from pathlib import Path
+
+origen = Path("archivo.txt")
+destino = Path("backup/archivo.txt")
+
+# Mover
+shutil.move(str(origen), str(destino))
+
+# Copiar
+shutil.copy(str(destino), "archivo_copia.txt")
+
+# Eliminar
+Path("archivo_copia.txt").unlink()
+```
+
+---
+
+
+Muy buena pregunta 👌
+
+Lo que te mostré antes es el **núcleo fundamental** para trabajar con directorios en Python (`os`, `os.path` y `pathlib`). Con eso ya puedes hacer **el 90% de las tareas comunes**.
+
+Pero, si quieres **dominar a nivel avanzado**, hay más cosas que vale la pena conocer:
+
+---
+
+# 🔹 1. Operaciones con rutas avanzadas
+
+* **Rutas absolutas vs relativas**
+
+```python
+from pathlib import Path
+
+print(Path("archivo.txt").resolve())  # convierte en ruta absoluta
+```
+
+* **Normalizar rutas** (eliminar `..` y `.` redundantes)
+
+```python
+import os
+print(os.path.normpath("carpeta/../archivo.txt"))
+```
+
+---
+
+# 🔹 2. Permisos y propiedades de directorios/archivos
+
+```python
+import os
+
+ruta = "archivo.txt"
+
+# Tamaño en bytes
+print(os.path.getsize(ruta))
+
+# Última fecha de modificación
+print(os.path.getmtime(ruta))
+
+# Ver permisos (modo Unix)
+print(oct(os.stat(ruta).st_mode))
+```
+
+Con `pathlib`:
+
+```python
+from pathlib import Path
+
+archivo = Path("archivo.txt")
+print(archivo.stat().st_size)   # tamaño
+print(archivo.stat().st_mtime)  # última modificación
+```
+
+---
+
+# 🔹 3. Recorrido avanzado de directorios
+
+```python
+import os
+
+for raiz, carpetas, archivos in os.walk("."):
+    print("Carpeta actual:", raiz)
+    print("Subcarpetas:", carpetas)
+    print("Archivos:", archivos)
+```
+
+Con `pathlib` (más limpio):
+
+```python
+from pathlib import Path
+
+for archivo in Path(".").rglob("*.py"):
+    print(archivo)
+```
+
+---
+
+# 🔹 4. Manejo de directorios temporales
+
+Útil cuando quieres crear carpetas que desaparecen al cerrar el programa:
+
+```python
+import tempfile
+
+with tempfile.TemporaryDirectory() as tmpdirname:
+    print("Directorio temporal:", tmpdirname)
+    # Se borra automáticamente al salir del bloque
+```
+
+---
+
+# 🔹 5. Manejo de entornos multiplataforma
+
+* En **Windows** las rutas usan `\`
+* En **Linux/Mac** las rutas usan `/`
+
+Por eso se recomienda `pathlib`:
+
+```python
+from pathlib import Path
+
+print(Path.home())   # ruta al directorio del usuario
+print(Path.cwd())    # directorio de trabajo actual
+```
+
+---
+
