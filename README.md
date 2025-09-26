@@ -1408,3 +1408,190 @@ print(mi_diccionario)
 `update()` actualiza los valores de claves existentes y añade nuevas claves.
 
 ---
+
+## ✨ Ejercicio 91 – Crear una tupla
+
+```python
+t = (1, 2, 3)
+print(t)
+```
+
+📘 **Explicación:**
+Se crea una tupla con tres elementos y se imprime.
+
+---
+
+## ✨ Ejercicio 92 – Crear una tupla con `tuple()`
+
+```python
+t = tuple([1, 2, 3])
+print(t)
+```
+
+📘 **Explicación:**
+El constructor `tuple()` convierte una lista en tupla.
+
+---
+
+## ✨ Ejercicio 93 – Acceder a un elemento por índice
+
+```python
+t = (10, 20, 30, 40)
+print(t[2])
+```
+
+📘 **Explicación:**
+Los elementos de una tupla se acceden por índice, empezando desde 0.
+
+---
+
+## ✨ Ejercicio 94 – Desempaquetar una tupla
+
+```python
+t = (1, 2, 3)
+a, b, c = t
+print(a, b, c)
+```
+
+📘 **Explicación:**
+Se pueden asignar los valores de una tupla a varias variables mediante desempaquetado.
+
+---
+
+## ✨ Ejercicio 95 – Verificar existencia de un valor
+
+```python
+t = (5, 10, 15, 20)
+print(10 in t)
+print(30 in t)
+```
+
+📘 **Explicación:**
+El operador `in` permite comprobar si un valor está dentro de una tupla.
+
+---
+
+## ✨ Ejercicio 96 – Concatenar tuplas
+
+```python
+t1 = (1, 2)
+t2 = (3, 4)
+t3 = t1 + t2
+print(t3)
+```
+
+📘 **Explicación:**
+El operador `+` concatena tuplas.
+
+---
+
+## ✨ Ejercicio 97 – Repetir una tupla
+
+```python
+t = (1, 2)
+print(t * 3)
+```
+
+📘 **Explicación:**
+El operador `*` repite los elementos de una tupla varias veces.
+
+---
+
+## ✨ Ejercicio 98 – Contar elementos con `count()`
+
+```python
+t = (1, 2, 2, 3, 2)
+print(t.count(2))
+```
+
+📘 **Explicación:**
+El método `count()` devuelve cuántas veces aparece un valor en la tupla.
+
+---
+
+## ✨ Ejercicio 99 – Encontrar índice con `index()`
+
+```python
+t = (10, 20, 30, 40)
+print(t.index(30))
+```
+
+📘 **Explicación:**
+El método `index()` devuelve la posición de un elemento en la tupla.
+
+---
+
+## ✨ Ejercicio 100 – Longitud de una tupla
+
+```python
+t = (1, 2, 3, 4, 5)
+print(len(t))
+```
+
+📘 **Explicación:**
+La función `len()` devuelve el número de elementos en la tupla.
+
+---
+
+## ✨ Ejercicio 101 – Tupla anidada
+
+```python
+t = (1, (2, 3), (4, 5))
+print(t[1][1])
+```
+
+📘 **Explicación:**
+Se pueden tener tuplas dentro de tuplas y acceder a sus valores mediante índices.
+
+---
+
+## ✨ Ejercicio 102 – Convertir lista en tupla
+
+```python
+lista = [1, 2, 3]
+t = tuple(lista)
+print(t)
+```
+
+📘 **Explicación:**
+El constructor `tuple()` convierte una lista en una tupla.
+
+---
+
+## ✨ Ejercicio 103 – Convertir tupla en lista
+
+```python
+t = (1, 2, 3)
+lista = list(t)
+print(lista)
+```
+
+📘 **Explicación:**
+El constructor `list()` convierte una tupla en lista.
+
+---
+
+## ✨ Ejercicio 104 – Tupla con diferentes tipos de datos
+
+```python
+t = (1, "hola", 3.5, True)
+print(t)
+```
+
+📘 **Explicación:**
+Las tuplas pueden almacenar datos de distintos tipos.
+
+---
+
+## ✨ Ejercicio 105 – Iterar sobre una tupla
+
+```python
+t = ("a", "b", "c")
+for i in t:
+    print(i)
+```
+
+📘 **Explicación:**
+Las tuplas se pueden recorrer con un bucle `for`.
+
+---
