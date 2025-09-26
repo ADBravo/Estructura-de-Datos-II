@@ -1,10 +1,7 @@
-
 ---
-
 # 🐍 Python - Estructura de Datos II
 
 Aquí encontrarás una colección de **ejercicios en Python**, cada uno con su código y explicación.
-
 ---
 
 ## ✨ Ejercicio 1 – Lista de frutas
@@ -1100,5 +1097,314 @@ print(list(Path("carpeta1.0").iterdir()))
 
 📘 **Explicación:**
 Lista archivos y carpetas usando `pathlib`.
+
+---
+
+## ✨ Ejercicio 73 – Crear un diccionario básico
+
+```python
+diccionario = {
+    "nombre": "Juan",
+    "edad": 28,
+    "ciudad": "Madrid",
+    "intereses": ["fútbol", "cine", "música"]
+}
+
+print(diccionario)
+```
+
+📘 **Explicación:**
+Se crea un diccionario con claves y valores de distintos tipos: cadenas, enteros y listas.
+
+---
+
+## ✨ Ejercicio 74 – Crear un diccionario con `dict()`
+
+```python
+diccionario = dict(
+    nombre="Adrián",
+    edad=20,
+    ciudad="Bogotá",
+    intereses=["Programación", "Tecnologia", "Desarrollo"]
+)
+
+print(diccionario)
+```
+
+📘 **Explicación:**
+Se utiliza la función `dict()` para crear un diccionario.
+
+---
+
+## ✨ Ejercicio 75 – Acceder a elementos del diccionario
+
+```python
+diccionario = dict(
+    nombre="Adrián",
+    edad=20,
+    ciudad="Bogotá",
+    intereses=["Programación", "Tecnologia", "Desarrollo"]
+)
+
+print(diccionario["nombre"])
+print(diccionario.get("nombre"))
+
+print(diccionario["edad"])
+print(diccionario.get("edad"))
+```
+
+📘 **Explicación:**
+Se accede a los valores usando tanto `[]` como el método `get()`.
+
+---
+
+## ✨ Ejercicio 76 – Modificar valores en el diccionario
+
+```python
+diccionario = dict(
+    nombre="Adrián",
+    edad=20,
+    ciudad="Bogotá",
+    intereses=["Programación", "Tecnologia", "Desarrollo"]
+)
+
+diccionario["nombre"] = "Andres"
+print(diccionario)
+```
+
+📘 **Explicación:**
+Se cambia el valor asociado a la clave `"nombre"`.
+
+---
+
+## ✨ Ejercicio 77 – Agregar una nueva clave al diccionario
+
+```python
+diccionario = dict(
+    nombre="Adrián",
+    edad=20,
+    ciudad="Bogotá",
+    intereses=["Programación", "Tecnologia", "Desarrollo"]
+)
+
+diccionario["dirección"] = "calle 123"
+print(diccionario)
+```
+
+📘 **Explicación:**
+Se añade una nueva clave `"dirección"` al diccionario.
+
+---
+
+## ✨ Ejercicio 78 – Recorrer solo las claves
+
+```python
+diccionario = dict(
+    nombre="Adrián",
+    edad=20,
+    ciudad="Bogotá",
+    intereses=["Programación", "Tecnologia", "Desarrollo"]
+)
+
+for clave in diccionario:
+    print(f"{clave}")
+```
+
+📘 **Explicación:**
+Un bucle `for` recorre únicamente las claves del diccionario.
+
+---
+
+## ✨ Ejercicio 79 – Recorrer solo los valores
+
+```python
+diccionario = dict(
+    nombre="Adrián",
+    edad=20,
+    ciudad="Bogotá",
+    intereses=["Programación", "Tecnologia", "Desarrollo"]
+)
+
+for item in diccionario.values():
+    print(f"{item}")
+```
+
+📘 **Explicación:**
+Se recorren únicamente los valores del diccionario con `values()`.
+
+---
+
+## ✨ Ejercicio 80 – Recorrer claves y valores
+
+```python
+diccionario = dict(
+    nombre="Adrián",
+    edad=20,
+    ciudad="Bogotá",
+    intereses=["Programación", "Tecnologia", "Desarrollo"]
+)
+
+for clave, item in diccionario.items():
+    print(f"{clave}: {item}")
+```
+
+📘 **Explicación:**
+Se recorren claves y valores con el método `items()`.
+
+---
+
+## ✨ Ejercicio 81 – Diccionarios anidados
+
+```python
+diccionario_anidado = dict(
+    persona1=dict(
+        nombre="Juan",
+        edad=28,
+        ciudad="Madrid"
+    ),
+    persona2=dict(
+        nombre="Ana",
+        edad=34,
+        ciudad="Barcelona"
+    )
+)
+
+print(diccionario_anidado["persona1"])
+print(diccionario_anidado["persona2"])
+```
+
+📘 **Explicación:**
+Un diccionario puede contener otros diccionarios dentro.
+
+---
+
+## ✨ Ejercicio 82 – Vaciar un diccionario
+
+```python
+mi_diccionario = {"a": 1, "b": 2, "c": 3}
+mi_diccionario.clear()
+
+print(mi_diccionario)
+```
+
+📘 **Explicación:**
+El método `clear()` elimina todos los elementos del diccionario.
+
+---
+
+## ✨ Ejercicio 83 – Usar `get()` con valor por defecto
+
+```python
+mi_diccionario = {"a": 1, "b": 2, "c": 3}
+
+print(mi_diccionario.get("b"))
+print(mi_diccionario.get("d", "No encontrado"))
+```
+
+📘 **Explicación:**
+`get()` permite acceder a valores y definir un valor predeterminado si la clave no existe.
+
+---
+
+## ✨ Ejercicio 84 – Recorrer un diccionario con `items()`
+
+```python
+mi_diccionario = {"a": 1, "b": 2, "c": 3}
+
+for clave, valor in mi_diccionario.items():
+    print(f"{clave}: {valor}")
+```
+
+📘 **Explicación:**
+`items()` devuelve pares clave-valor para iterar.
+
+---
+
+## ✨ Ejercicio 85 – Convertir `items()` en lista
+
+```python
+mi_diccionario = {"a": 1, "b": 2, "c": 3}
+
+items = list(mi_diccionario.items())
+print(items)
+```
+
+📘 **Explicación:**
+Los pares clave-valor se convierten en una lista de tuplas.
+
+---
+
+## ✨ Ejercicio 86 – Obtener todas las claves
+
+```python
+mi_diccionario = {"a": 1, "b": 2, "c": 3}
+
+claves = mi_diccionario.keys()
+print(claves)
+print(list(claves))
+```
+
+📘 **Explicación:**
+El método `keys()` devuelve todas las claves del diccionario.
+
+---
+
+## ✨ Ejercicio 87 – Obtener todos los valores
+
+```python
+mi_diccionario = {"a": 1, "b": 2, "c": 3}
+
+valores = mi_diccionario.values()
+print(valores)
+print(list(valores))
+```
+
+📘 **Explicación:**
+El método `values()` devuelve todos los valores del diccionario.
+
+---
+
+## ✨ Ejercicio 88 – Eliminar un elemento con `pop()`
+
+```python
+mi_diccionario = {"a": 1, "b": 2, "c": 3}
+
+valor = mi_diccionario.pop("b")
+print(valor)
+print(mi_diccionario)
+```
+
+📘 **Explicación:**
+`pop()` elimina una clave y devuelve su valor.
+
+---
+
+## ✨ Ejercicio 89 – Eliminar el último elemento con `popitem()`
+
+```python
+mi_diccionario = {"a": 1, "b": 2, "c": 3}
+
+ultimo_item = mi_diccionario.popitem()
+print(ultimo_item)
+print(mi_diccionario)
+```
+
+📘 **Explicación:**
+`popitem()` elimina y devuelve el último par clave-valor.
+
+---
+
+## ✨ Ejercicio 90 – Actualizar un diccionario con `update()`
+
+```python
+mi_diccionario = {"a": 1, "b": 2}
+nuevo_diccionario = {"b": 3, "c": 4}
+
+mi_diccionario.update(nuevo_diccionario)
+print(mi_diccionario)
+```
+
+📘 **Explicación:**
+`update()` actualiza los valores de claves existentes y añade nuevas claves.
 
 ---
