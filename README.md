@@ -677,3 +677,428 @@ print("Solo Backend:", habilidades_solo_backend)
 Se gestionan las habilidades de dos equipos (frontend y backend) usando operaciones con conjuntos como unión, intersección y diferencia.
 
 ---
+
+## ✨ Ejercicio 39 – Crear carpeta con `os.mkdir()`
+
+```python
+import os
+os.mkdir("nueva_carpeta")
+print(os.listdir("."))
+```
+
+📘 **Explicación:**
+Se crea una nueva carpeta llamada `nueva_carpeta` en el directorio actual y se listan sus contenidos.
+
+---
+
+## ✨ Ejercicio 40 – Crear carpeta con `Path.mkdir()`
+
+```python
+from pathlib import Path
+Path("nueva_carpeta1").mkdir()
+print(list(Path(".").iterdir()))
+```
+
+📘 **Explicación:**
+Se crea una nueva carpeta usando `pathlib` y luego se listan los elementos del directorio actual.
+
+---
+
+## ✨ Ejercicio 41 – Obtener ruta actual con `os.getcwd()`
+
+```python
+import os
+print(os.getcwd())
+```
+
+📘 **Explicación:**
+Muestra la ruta absoluta del directorio de trabajo actual.
+
+---
+
+## ✨ Ejercicio 42 – Obtener ruta actual con `Path.cwd()`
+
+```python
+from pathlib import Path
+print(Path.cwd())
+```
+
+📘 **Explicación:**
+Devuelve el directorio de trabajo actual con `pathlib`.
+
+---
+
+## ✨ Ejercicio 43 – Listar archivos con `os.listdir()`
+
+```python
+import os
+print(os.listdir('.'))
+```
+
+📘 **Explicación:**
+Muestra una lista de los archivos y carpetas en el directorio actual.
+
+---
+
+## ✨ Ejercicio 44 – Listar archivos con `Path.iterdir()`
+
+```python
+from pathlib import Path
+for f in Path('.').iterdir():
+    print(f)
+```
+
+📘 **Explicación:**
+Recorre e imprime todos los elementos del directorio actual.
+
+---
+
+## ✨ Ejercicio 45 – Crear archivo con `open()`
+
+```python
+import os
+with open("nuevo.txt", "w") as f:
+    f.write("Hola mundo")
+```
+
+📘 **Explicación:**
+Crea un archivo `nuevo.txt` y escribe el texto `"Hola mundo"`.
+
+---
+
+## ✨ Ejercicio 46 – Crear archivo con `Path.write_text()`
+
+```python
+from pathlib import Path
+Path("nuevo1txt").write_text("Hola mundo")
+```
+
+📘 **Explicación:**
+Crea un archivo y escribe texto directamente usando `pathlib`.
+
+---
+
+## ✨ Ejercicio 47 – Verificar existencia con `os.path.exists()`
+
+```python
+import os
+print(os.path.exists("nuevo.txt"))
+print(os.path.exists("archivo.txt"))
+```
+
+📘 **Explicación:**
+Comprueba si existen los archivos `nuevo.txt` y `archivo.txt`.
+
+---
+
+## ✨ Ejercicio 48 – Verificar existencia con `Path.exists()`
+
+```python
+from pathlib import Path
+print(Path("archivo.txt").exists())
+print(Path("nuevo.txt").exists())
+```
+
+📘 **Explicación:**
+Verifica si existen los archivos utilizando `pathlib`.
+
+---
+
+## ✨ Ejercicio 49 – Eliminar archivo con `os.remove()`
+
+```python
+import os
+os.remove("nuevo.txt")
+```
+
+📘 **Explicación:**
+Elimina el archivo `nuevo.txt`.
+
+---
+
+## ✨ Ejercicio 50 – Eliminar archivo con `Path.unlink()`
+
+```python
+from pathlib import Path
+Path("nuevo1.txt").unlink()
+```
+
+📘 **Explicación:**
+Elimina un archivo usando `pathlib`.
+
+---
+
+## ✨ Ejercicio 51 – Eliminar carpeta vacía con `os.rmdir()`
+
+```python
+import os
+os.rmdir("nueva_carpeta")
+```
+
+📘 **Explicación:**
+Elimina la carpeta `nueva_carpeta`, siempre que esté vacía.
+
+---
+
+## ✨ Ejercicio 52 – Eliminar carpeta vacía con `Path.rmdir()`
+
+```python
+from pathlib import Path
+Path("nueva_carpeta1").rmdir()
+```
+
+📘 **Explicación:**
+Elimina una carpeta vacía usando `pathlib`.
+
+---
+
+## ✨ Ejercicio 53 – Renombrar archivo con `os.rename()`
+
+```python
+import os
+os.rename("nuevo.txt", "renombrado.txt")
+```
+
+📘 **Explicación:**
+Cambia el nombre del archivo `nuevo.txt` a `renombrado.txt`.
+
+---
+
+## ✨ Ejercicio 54 – Renombrar archivo con `Path.rename()`
+
+```python
+from pathlib import Path
+Path("nuevo1.txt").rename("renombrado1.txt")
+```
+
+📘 **Explicación:**
+Renombra el archivo con `pathlib`.
+
+---
+
+## ✨ Ejercicio 55 – Leer archivo con `open()`
+
+```python
+import os
+with open("nuevo.txt", "r") as f:
+    print(f.read())
+```
+
+📘 **Explicación:**
+Abre y lee el contenido del archivo `nuevo.txt`.
+
+---
+
+## ✨ Ejercicio 56 – Leer archivo con `Path.read_text()`
+
+```python
+from pathlib import Path
+print(Path("nuevo1.txt").read_text())
+```
+
+📘 **Explicación:**
+Lee el contenido de un archivo usando `pathlib`.
+
+---
+
+## ✨ Ejercicio 57 – Escribir archivo con `open()`
+
+```python
+import os
+with open("nuevo.txt", "w") as f:
+    f.write("hello world")
+```
+
+📘 **Explicación:**
+Escribe el texto `"hello world"` en el archivo `nuevo.txt`.
+
+---
+
+## ✨ Ejercicio 58 – Escribir archivo con `Path.write_text()`
+
+```python
+from pathlib import Path
+Path("nuevo1.txt").write_text("Darian")
+```
+
+📘 **Explicación:**
+Escribe el texto `"Darian"` en el archivo usando `pathlib`.
+
+---
+
+## ✨ Ejercicio 59 – Obtener ruta absoluta con `os.path.abspath()`
+
+```python
+import os
+print(os.path.abspath("nuevo.txt"))
+```
+
+📘 **Explicación:**
+Muestra la ruta absoluta del archivo `nuevo.txt`.
+
+---
+
+## ✨ Ejercicio 60 – Obtener ruta absoluta con `Path.absolute()`
+
+```python
+from pathlib import Path
+print(Path("nuevo1.txt").absolute())
+```
+
+📘 **Explicación:**
+Muestra la ruta absoluta del archivo usando `pathlib`.
+
+---
+
+## ✨ Ejercicio 61 – Obtener nombre y extensión con `os.path.splitext()`
+
+```python
+import os
+print(os.path.splitext("nuevo.txt"))
+```
+
+📘 **Explicación:**
+Devuelve el nombre y la extensión del archivo en una tupla.
+
+---
+
+## ✨ Ejercicio 62 – Obtener nombre y extensión con `Path.stem` y `Path.suffix`
+
+```python
+from pathlib import Path
+p = Path("nuevo1.txt")
+print(p.stem)
+print(p.suffix)
+```
+
+📘 **Explicación:**
+Obtiene el nombre sin extensión (`stem`) y la extensión (`suffix`) de un archivo.
+
+---
+
+## ✨ Ejercicio 63 – Obtener solo nombre de archivo con `os.path.basename()`
+
+```python
+import os
+print(os.path.basename("Users/NICOL/OneDrive/Desktop/directorios/Obtener solo el nombre del archivo o del directorio/nuevo.txt"))
+```
+
+📘 **Explicación:**
+Devuelve únicamente el nombre del archivo desde una ruta completa.
+
+---
+
+## ✨ Ejercicio 64 – Obtener solo nombre de archivo con `Path.name`
+
+```python
+from pathlib import Path
+p = Path("Users/NICOL/OneDrive/Desktop/directorios/Obtener solo el nombre del archivo o del directorio/nuevo1.txt")
+print(p.name)
+```
+
+📘 **Explicación:**
+Obtiene solo el nombre del archivo desde una ruta completa con `pathlib`.
+
+---
+
+## ✨ Ejercicio 65 – Crear subcarpetas con `os.makedirs()`
+
+```python
+import os
+os.makedirs("carpeta1/carpeta2/carpeta3", exist_ok=True)
+```
+
+📘 **Explicación:**
+Crea una estructura de carpetas anidadas.
+
+---
+
+## ✨ Ejercicio 66 – Crear subcarpetas con `Path.mkdir(parents=True)`
+
+```python
+from pathlib import Path
+Path("carpeta1.0/carpeta2.0/carpeta3.0").mkdir(parents=True, exist_ok=True)
+```
+
+📘 **Explicación:**
+Crea carpetas anidadas con `pathlib`.
+
+---
+
+## ✨ Ejercicio 67 – Eliminar carpeta con `shutil.rmtree()` y `os`
+
+```python
+import os
+import shutil
+shutil.rmtree("carpeta1")
+```
+
+📘 **Explicación:**
+Elimina la carpeta `carpeta1` junto con todos sus archivos y subcarpetas.
+
+---
+
+## ✨ Ejercicio 68 – Eliminar carpeta con `shutil.rmtree()` y `Path`
+
+```python
+from pathlib import Path
+import shutil
+shutil.rmtree(Path("carpeta1.0"))
+```
+
+📘 **Explicación:**
+Elimina una carpeta completa usando `pathlib`.
+
+---
+
+## ✨ Ejercicio 69 – Renombrar y mover carpetas con `os.rename()`
+
+```python
+import os
+os.rename("carpeta1", "carpeta_renombrada")
+os.rename("carpeta_renombrada", "otra_carpeta/carpeta_renombrada")
+```
+
+📘 **Explicación:**
+Primero renombra una carpeta y luego la mueve dentro de otra.
+
+---
+
+## ✨ Ejercicio 70 – Renombrar y mover carpetas con `Path.rename()`
+
+```python
+from pathlib import Path
+Path("carpeta1.0").rename("carpeta_renombrada1.0")
+Path("carpeta_renombrada1.0").rename("otra_carpeta1/carpeta_renombrada1.0")
+```
+
+📘 **Explicación:**
+Renombra y mueve una carpeta usando `pathlib`.
+
+---
+
+## ✨ Ejercicio 71 – Listar archivos de carpetas con `os.listdir()`
+
+```python
+import os
+print(os.listdir("."))
+print(os.listdir("carpeta1"))
+```
+
+📘 **Explicación:**
+Lista archivos del directorio actual y de una carpeta específica.
+
+---
+
+## ✨ Ejercicio 72 – Listar archivos de carpetas con `Path.iterdir()`
+
+```python
+from pathlib import Path
+print(list(Path(".").iterdir()))
+print(list(Path("carpeta1.0").iterdir()))
+```
+
+📘 **Explicación:**
+Lista archivos y carpetas usando `pathlib`.
+
+---
