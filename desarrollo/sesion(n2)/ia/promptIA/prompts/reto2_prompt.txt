@@ -1,0 +1,17 @@
+Resuelve el siguiente problema algorítmico en Python:
+
+Implementa un grafo con costos en las aristas (los costos pueden ser generados aleatoriamente).
+Escoge un nodo de inicio y un nodo final, e implementa:
+
+1. El algoritmo de Dijkstra.
+2. El algoritmo A* (A-Star).
+
+Tu respuesta debe incluir obligatoriamente:
+1. Explicación clara del enfoque: cómo se representa el grafo y cómo funcionan Dijkstra y A*.
+2. El código completo en Python con ambas implementaciones.
+3. Comparación de los caminos encontrados y sus costos.
+4. Ejemplo de ejecución en consola mostrando los resultados de ambos algoritmos.
+5. Comentarios dentro del código explicando los pasos importantes.
+
+No uses JSON, ni envoltorios como "success", "result", "status" o "data".  
+La salida debe estar en texto plano y Python comentado.
